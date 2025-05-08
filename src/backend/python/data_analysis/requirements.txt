@@ -1,0 +1,7 @@
+Flask>=2.0
+pandas>=1.3 # Added pandas for data manipulation
+# Add other dependencies here, e.g.:
+# numpy
+# sqlalchemy (if connecting to DB)
+# mysql-connector-python (if using MySQL)
+

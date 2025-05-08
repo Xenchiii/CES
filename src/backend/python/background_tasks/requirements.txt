@@ -1,0 +1,7 @@
+celery>=5.3 # Celery task queue
+redis>=4.3 # Redis client (if using Redis as broker/backend)
+# Add other dependencies needed by your tasks, e.g.:
+# requests (if calling email APIs)
+# pandas (if tasks involve data processing)
+# SQLAlchemy / mysql-connector-python (if tasks access DB)
+

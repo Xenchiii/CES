@@ -1,0 +1,31 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Achievement {
+  AchievementID Int @id @default(autoincrement())
+  Title         String
+  Date          DateTime?
+  Org           String?
+  Description   String?
+  Participants  String?
+  Image         String?
+  DataAiHint    String?
+}
+
+model Event {
+  EventID           Int       @id @default(autoincrement())
+  Title             String
+  Date              DateTime?
+  EndDate           DateTime?
+  Location          String?
+  Description       String?
+  RequiresRegistration Boolean @default(false)
+  RegistrationFee   Decimal? @default(0)
+  RegistrationCount Int       @default(0)
+}

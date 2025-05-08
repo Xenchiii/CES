@@ -1,0 +1,1352 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+   /* Apply font size multiplier */
+  font-size: calc(1rem * var(--font-size-multiplier, 1));
+}
+
+@layer base {
+  /* Default Theme (Light) */
+  :root, .theme-default {
+    --background: 0 0% 100%; /* White */
+    --foreground: 206 100% 10%; /* Dark Blueish - provides good contrast on white */
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 206 100% 10%; /* Dark Blueish */
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 206 100% 10%; /* Dark Blueish */
+    --primary: 206 100% 15%; /* Dark Blue #003049 */
+    --primary-foreground: 51 97% 52%; /* Bumblebee #FCE205 */
+    --secondary: 51 97% 52%; /* Bumblebee #FCE205 */
+    --secondary-foreground: 206 100% 10%; /* Dark Blueish, for contrast on Bumblebee */
+    --muted: 0 0% 96.1%; /* Light Gray */
+    --muted-foreground: 0 0% 45.1%; /* Gray */
+    --accent: 208 50% 50%; /* Steel Blue #4682B4 */
+    --accent-foreground: 0 0% 98%; /* White for contrast on Steel Blue */
+    --destructive: 0 84.2% 60.2%; /* Default Red */
+    --destructive-foreground: 0 0% 98%; /* White */
+    --border: 0 0% 89.8%; /* Light Gray */
+    --input: 0 0% 89.8%; /* Light Gray */
+    --ring: 208 50% 50%; /* Steel Blue for focus rings */
+    --chart-1: 206 100% 15%; /* Dark Blue */
+    --chart-2: 51 97% 52%; /* Bumblebee */
+    --chart-3: 208 50% 50%; /* Steel Blue */
+    --chart-4: 12 76% 61%; /* Default Chart Color 4 */
+    --chart-5: 173 58% 39%; /* Default Chart Color 5 */
+    --radius: 0.5rem;
+    --sidebar-background: 206 100% 15%; /* Dark Blue */
+    --sidebar-foreground: 0 0% 98%; /* White */
+    --sidebar-primary: 51 97% 52%; /* Bumblebee */
+    --sidebar-primary-foreground: 206 100% 10%; /* Dark Blueish */
+    --sidebar-accent: 208 50% 50%; /* Steel Blue */
+    --sidebar-accent-foreground: 0 0% 98%; /* White */
+    --sidebar-border: 208 50% 60%; /* Lighter Steel Blue */
+    --sidebar-ring: 51 97% 52%; /* Bumblebee */
+    --font-size-multiplier: 1; /* Default font size multiplier */
+  }
+
+  /* Default Theme (Dark) */
+  .dark.theme-default {
+    --background: 206 100% 5%; /* Very Dark Blue */
+    --foreground: 0 0% 98%; /* White */
+    --card: 206 100% 10%; /* Darker Blue */
+    --card-foreground: 0 0% 98%; /* White */
+    --popover: 206 100% 10%; /* Darker Blue */
+    --popover-foreground: 0 0% 98%; /* White */
+    --primary: 51 97% 52%; /* Bumblebee */
+    --primary-foreground: 206 100% 10%; /* Dark Blueish */
+    --secondary: 208 50% 50%; /* Steel Blue */
+    --secondary-foreground: 0 0% 98%; /* White */
+    --muted: 206 100% 15%; /* Dark Blue */
+    --muted-foreground: 0 0% 63.9%; /* Gray */
+    --accent: 51 97% 60%; /* Lighter Bumblebee for accent */
+    --accent-foreground: 206 100% 10%; /* Dark Blueish */
+    --destructive: 0 62.8% 30.6%; /* Darker Red */
+    --destructive-foreground: 0 0% 98%; /* White */
+    --border: 206 100% 15%; /* Dark Blue */
+    --input: 206 100% 15%; /* Dark Blue */
+    --ring: 51 97% 52%; /* Bumblebee */
+    --chart-1: 51 97% 52%; /* Bumblebee */
+    --chart-2: 208 50% 50%; /* Steel Blue */
+    --chart-3: 206 100% 25%; /* Lighter Dark Blue */
+    --chart-4: 280 65% 60%; /* Default Dark Chart Color 4 */
+    --chart-5: 340 75% 55%; /* Default Dark Chart Color 5 */
+    --sidebar-background: 206 100% 10%; /* Darker Blue */
+    --sidebar-foreground: 0 0% 98%; /* White */
+    --sidebar-primary: 51 97% 52%; /* Bumblebee */
+    --sidebar-primary-foreground: 206 100% 10%; /* Dark Blueish */
+    --sidebar-accent: 208 50% 50%; /* Steel Blue */
+    --sidebar-accent-foreground: 0 0% 98%; /* White */
+    --sidebar-border: 208 50% 40%; /* Darker Steel Blue */
+    --sidebar-ring: 51 97% 52%; /* Bumblebee */
+  }
+
+  /* Ocean Theme (Light) */
+  .theme-ocean {
+    --background: 190 100% 98%; /* Very Light Cyan */
+    --foreground: 210 50% 30%; /* Deep Blue */
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 210 50% 30%; /* Deep Blue */
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 210 50% 30%; /* Deep Blue */
+    --primary: 200 85% 50%; /* Bright Cerulean */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 180 60% 65%; /* Teal */
+    --secondary-foreground: 210 50% 20%; /* Darker Deep Blue */
+    --muted: 190 30% 95%; /* Light Grayish Cyan */
+    --muted-foreground: 190 20% 50%; /* Grayish Cyan */
+    --accent: 220 70% 60%; /* Medium Blue */
+    --accent-foreground: 0 0% 100%; /* White */
+    --destructive: 0 84.2% 60.2%; /* Red */
+    --destructive-foreground: 0 0% 98%; /* White */
+    --border: 190 30% 88%; /* Lighter Grayish Cyan */
+    --input: 190 30% 88%;
+    --ring: 200 85% 50%; /* Bright Cerulean */
+    --sidebar-background: 210 50% 30%; /* Deep Blue */
+    --sidebar-foreground: 0 0% 98%; /* White */
+    --sidebar-primary: 180 60% 65%; /* Teal */
+    --sidebar-primary-foreground: 210 50% 15%; /* Very Dark Blue */
+    --sidebar-accent: 200 85% 50%; /* Bright Cerulean */
+    --sidebar-accent-foreground: 0 0% 100%; /* White */
+    --sidebar-border: 200 50% 70%; /* Lighter Cerulean */
+    --sidebar-ring: 180 60% 65%; /* Teal */
+  }
+
+  /* Ocean Theme (Dark) */
+  .dark.theme-ocean {
+    --background: 210 60% 10%; /* Very Dark Blue */
+    --foreground: 190 60% 90%; /* Light Cyan */
+    --card: 210 55% 15%; /* Darker Blue */
+    --card-foreground: 190 60% 90%; /* Light Cyan */
+    --popover: 210 55% 15%;
+    --popover-foreground: 190 60% 90%;
+    --primary: 180 70% 55%; /* Brighter Teal */
+    --primary-foreground: 210 60% 5%; /* Very Dark Blue for contrast */
+    --secondary: 200 80% 60%; /* Lighter Cerulean */
+    --secondary-foreground: 210 60% 10%; /* Very Dark Blue */
+    --muted: 210 40% 20%; /* Dark Muted Blue */
+    --muted-foreground: 190 30% 60%; /* Muted Cyan */
+    --accent: 180 70% 45%; /* Teal Accent */
+    --accent-foreground: 0 0% 98%; /* White */
+    --destructive: 0 62.8% 30.6%; /* Darker Red */
+    --destructive-foreground: 0 0% 98%; /* White */
+    --border: 210 40% 25%; /* Dark Blue Border */
+    --input: 210 40% 20%;
+    --ring: 180 70% 55%; /* Brighter Teal */
+    --sidebar-background: 210 55% 15%; /* Darker Blue */
+    --sidebar-foreground: 190 60% 90%; /* Light Cyan */
+    --sidebar-primary: 180 70% 55%; /* Brighter Teal */
+    --sidebar-primary-foreground: 210 60% 5%; /* Very Dark Blue */
+    --sidebar-accent: 200 80% 60%; /* Lighter Cerulean */
+    --sidebar-accent-foreground: 210 60% 10%; /* Very Dark Blue */
+    --sidebar-border: 200 50% 30%; /* Darker Cerulean */
+    --sidebar-ring: 180 70% 55%; /* Brighter Teal */
+  }
+
+  /* Sunset Theme (Light) */
+  .theme-sunset {
+    --background: 30 100% 97%; /* Very Light Orange */
+    --foreground: 20 80% 35%; /* Deep Brown */
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 20 80% 35%; /* Deep Brown */
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 80% 35%;
+    --primary: 15 90% 55%; /* Bright Orange */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 35 85% 65%; /* Peach */
+    --secondary-foreground: 20 80% 25%; /* Darker Brown */
+    --muted: 30 40% 95%; /* Light Grayish Orange */
+    --muted-foreground: 30 30% 55%; /* Grayish Orange */
+    --accent: 5 80% 60%; /* Coral Red */
+    --accent-foreground: 0 0% 100%; /* White */
+    --destructive: 0 84.2% 60.2%; /* Red */
+    --destructive-foreground: 0 0% 98%; /* White */
+    --border: 30 40% 88%; /* Lighter Grayish Orange */
+    --input: 30 40% 88%;
+    --ring: 15 90% 55%; /* Bright Orange */
+    --sidebar-background: 20 80% 35%; /* Deep Brown */
+    --sidebar-foreground: 30 100% 97%; /* Very Light Orange */
+    --sidebar-primary: 35 85% 65%; /* Peach */
+    --sidebar-primary-foreground: 20 80% 15%; /* Very Dark Brown */
+    --sidebar-accent: 15 90% 55%; /* Bright Orange */
+    --sidebar-accent-foreground: 0 0% 100%; /* White */
+    --sidebar-border: 15 60% 70%; /* Lighter Orange */
+    --sidebar-ring: 35 85% 65%; /* Peach */
+  }
+
+  /* Sunset Theme (Dark) */
+  .dark.theme-sunset {
+    --background: 20 70% 10%; /* Very Dark Brown */
+    --foreground: 35 80% 90%; /* Light Peach */
+    --card: 20 65% 15%; /* Darker Brown */
+    --card-foreground: 35 80% 90%; /* Light Peach */
+    --popover: 20 65% 15%;
+    --popover-foreground: 35 80% 90%;
+    --primary: 30 90% 65%; /* Lighter Peach */
+    --primary-foreground: 20 70% 5%; /* Very Dark Brown */
+    --secondary: 15 85% 60%; /* Lighter Orange */
+    --secondary-foreground: 20 70% 10%; /* Very Dark Brown */
+    --muted: 20 50% 20%; /* Dark Muted Brown */
+    --muted-foreground: 30 40% 60%; /* Muted Orange */
+    --accent: 5 80% 55%; /* Coral Red Accent */
+    --accent-foreground: 0 0% 98%; /* White */
+    --destructive: 0 62.8% 30.6%; /* Darker Red */
+    --destructive-foreground: 0 0% 98%; /* White */
+    --border: 20 50% 25%; /* Dark Brown Border */
+    --input: 20 50% 20%;
+    --ring: 30 90% 65%; /* Lighter Peach */
+    --sidebar-background: 20 65% 15%; /* Darker Brown */
+    --sidebar-foreground: 35 80% 90%; /* Light Peach */
+    --sidebar-primary: 30 90% 65%; /* Lighter Peach */
+    --sidebar-primary-foreground: 20 70% 5%; /* Very Dark Brown */
+    --sidebar-accent: 15 85% 60%; /* Lighter Orange */
+    --sidebar-accent-foreground: 20 70% 10%; /* Very Dark Brown */
+    --sidebar-border: 15 60% 40%; /* Darker Orange */
+    --sidebar-ring: 30 90% 65%; /* Lighter Peach */
+  }
+
+  /* Forest Theme (Light) */
+  .theme-forest {
+    --background: 100 30% 97%; /* Very Light Green */
+    --foreground: 120 60% 25%; /* Deep Forest Green */
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 120 60% 25%; /* Deep Forest Green */
+    --popover: 0 0% 100%;
+    --popover-foreground: 120 60% 25%;
+    --primary: 130 70% 40%; /* Medium Green */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 80 60% 65%; /* Light Olive Green */
+    --secondary-foreground: 120 60% 20%; /* Darker Forest Green */
+    --muted: 100 20% 95%; /* Light Grayish Green */
+    --muted-foreground: 100 15% 55%; /* Grayish Green */
+    --accent: 150 50% 50%; /* Tealish Green */
+    --accent-foreground: 0 0% 100%; /* White */
+    --destructive: 0 84.2% 60.2%; /* Red */
+    --destructive-foreground: 0 0% 98%; /* White */
+    --border: 100 20% 88%; /* Lighter Grayish Green */
+    --input: 100 20% 88%;
+    --ring: 130 70% 40%; /* Medium Green */
+    --sidebar-background: 120 60% 25%; /* Deep Forest Green */
+    --sidebar-foreground: 100 30% 97%; /* Very Light Green */
+    --sidebar-primary: 80 60% 65%; /* Light Olive Green */
+    --sidebar-primary-foreground: 120 60% 10%; /* Very Dark Green */
+    --sidebar-accent: 130 70% 40%; /* Medium Green */
+    --sidebar-accent-foreground: 0 0% 100%; /* White */
+    --sidebar-border: 130 50% 60%; /* Lighter Medium Green */
+    --sidebar-ring: 80 60% 65%; /* Light Olive Green */
+  }
+
+  /* Forest Theme (Dark) */
+  .dark.theme-forest {
+    --background: 120 50% 10%; /* Very Dark Green */
+    --foreground: 100 50% 90%; /* Light Green */
+    --card: 120 45% 15%; /* Darker Green */
+    --card-foreground: 100 50% 90%; /* Light Green */
+    --popover: 120 45% 15%;
+    --popover-foreground: 100 50% 90%;
+    --primary: 90 65% 55%; /* Brighter Olive */
+    --primary-foreground: 120 50% 5%; /* Very Dark Green */
+    --secondary: 130 60% 60%; /* Lighter Medium Green */
+    --secondary-foreground: 120 50% 10%; /* Very Dark Green */
+    --muted: 120 30% 20%; /* Dark Muted Green */
+    --muted-foreground: 100 25% 60%; /* Muted Green */
+    --accent: 150 50% 45%; /* Tealish Green Accent */
+    --accent-foreground: 0 0% 98%; /* White */
+    --destructive: 0 62.8% 30.6%; /* Darker Red */
+    --destructive-foreground: 0 0% 98%; /* White */
+    --border: 120 30% 25%; /* Dark Green Border */
+    --input: 120 30% 20%;
+    --ring: 90 65% 55%; /* Brighter Olive */
+    --sidebar-background: 120 45% 15%; /* Darker Green */
+    --sidebar-foreground: 100 50% 90%; /* Light Green */
+    --sidebar-primary: 90 65% 55%; /* Brighter Olive */
+    --sidebar-primary-foreground: 120 50% 5%; /* Very Dark Green */
+    --sidebar-accent: 130 60% 60%; /* Lighter Medium Green */
+    --sidebar-accent-foreground: 120 50% 10%; /* Very Dark Green */
+    --sidebar-border: 130 40% 35%; /* Darker Medium Green */
+    --sidebar-ring: 90 65% 55%; /* Brighter Olive */
+  }
+
+  /* Desert Theme (Light) */
+    .theme-desert {
+        --background: 35 70% 95%; /* Sandy Beige */
+        --foreground: 25 60% 30%; /* Deep Brown */
+        --card: 0 0% 100%; /* White */
+        --card-foreground: 25 60% 30%; /* Deep Brown */
+        --popover: 0 0% 100%;
+        --popover-foreground: 25 60% 30%;
+        --primary: 20 80% 60%; /* Terracotta */
+        --primary-foreground: 0 0% 100%; /* White */
+        --secondary: 30 80% 70%; /* Muted Orange */
+        --secondary-foreground: 25 60% 20%; /* Darker Brown */
+        --muted: 35 40% 90%; /* Light Sandy Beige */
+        --muted-foreground: 35 30% 50%; /* Grayish Beige */
+        --accent: 90 40% 55%; /* Cactus Green */
+        --accent-foreground: 0 0% 100%; /* White */
+        --destructive: 0 84.2% 60.2%; /* Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 35 40% 85%; /* Light Beige Border */
+        --input: 35 40% 85%;
+        --ring: 20 80% 60%; /* Terracotta */
+        --sidebar-background: 25 60% 30%; /* Deep Brown */
+        --sidebar-foreground: 35 70% 95%; /* Sandy Beige */
+        --sidebar-primary: 30 80% 70%; /* Muted Orange */
+        --sidebar-primary-foreground: 25 60% 10%; /* Very Dark Brown */
+        --sidebar-accent: 90 40% 55%; /* Cactus Green */
+        --sidebar-accent-foreground: 0 0% 100%; /* White */
+        --sidebar-border: 30 50% 50%; /* Darker Muted Orange */
+        --sidebar-ring: 30 80% 70%; /* Muted Orange */
+    }
+
+    /* Desert Theme (Dark) */
+    .dark.theme-desert {
+        --background: 25 50% 10%; /* Very Dark Brown */
+        --foreground: 35 60% 85%; /* Light Sandy Beige */
+        --card: 25 45% 15%; /* Darker Brown */
+        --card-foreground: 35 60% 85%; /* Light Sandy Beige */
+        --popover: 25 45% 15%;
+        --popover-foreground: 35 60% 85%;
+        --primary: 30 80% 60%; /* Muted Orange */
+        --primary-foreground: 25 50% 5%; /* Very Dark Brown */
+        --secondary: 20 70% 50%; /* Terracotta */
+        --secondary-foreground: 25 50% 10%; /* Very Dark Brown */
+        --muted: 25 30% 20%; /* Dark Muted Brown */
+        --muted-foreground: 35 25% 55%; /* Muted Beige */
+        --accent: 90 35% 45%; /* Darker Cactus Green */
+        --accent-foreground: 0 0% 98%; /* White */
+        --destructive: 0 62.8% 30.6%; /* Darker Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 25 30% 25%; /* Dark Brown Border */
+        --input: 25 30% 20%;
+        --ring: 30 80% 60%; /* Muted Orange */
+        --sidebar-background: 25 45% 15%; /* Darker Brown */
+        --sidebar-foreground: 35 60% 85%; /* Light Sandy Beige */
+        --sidebar-primary: 30 80% 60%; /* Muted Orange */
+        --sidebar-primary-foreground: 25 50% 5%; /* Very Dark Brown */
+        --sidebar-accent: 90 35% 45%; /* Darker Cactus Green */
+        --sidebar-accent-foreground: 0 0% 98%; /* White */
+        --sidebar-border: 90 30% 35%; /* Darkest Cactus Green */
+        --sidebar-ring: 30 80% 60%; /* Muted Orange */
+    }
+
+    /* Mountain Theme (Light) */
+    .theme-mountain {
+        --background: 210 20% 96%; /* Light Gray */
+        --foreground: 150 40% 25%; /* Deep Green */
+        --card: 0 0% 100%; /* White */
+        --card-foreground: 150 40% 25%; /* Deep Green */
+        --popover: 0 0% 100%;
+        --popover-foreground: 150 40% 25%;
+        --primary: 210 40% 50%; /* Cool Gray */
+        --primary-foreground: 0 0% 100%; /* White */
+        --secondary: 200 50% 60%; /* Icy Blue */
+        --secondary-foreground: 210 40% 20%; /* Darker Gray */
+        --muted: 210 15% 90%; /* Very Light Gray */
+        --muted-foreground: 210 10% 50%; /* Medium Gray */
+        --accent: 30 30% 50%; /* Earthy Brown */
+        --accent-foreground: 0 0% 100%; /* White */
+        --destructive: 0 84.2% 60.2%; /* Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 210 15% 85%; /* Light Gray Border */
+        --input: 210 15% 85%;
+        --ring: 210 40% 50%; /* Cool Gray */
+        --sidebar-background: 150 40% 25%; /* Deep Green */
+        --sidebar-foreground: 210 20% 96%; /* Light Gray */
+        --sidebar-primary: 200 50% 60%; /* Icy Blue */
+        --sidebar-primary-foreground: 150 40% 10%; /* Very Dark Green */
+        --sidebar-accent: 210 40% 50%; /* Cool Gray */
+        --sidebar-accent-foreground: 0 0% 100%; /* White */
+        --sidebar-border: 210 30% 70%; /* Lighter Gray */
+        --sidebar-ring: 200 50% 60%; /* Icy Blue */
+    }
+
+    /* Mountain Theme (Dark) */
+    .dark.theme-mountain {
+        --background: 210 30% 10%; /* Very Dark Gray-Blue */
+        --foreground: 150 30% 85%; /* Light Muted Green */
+        --card: 210 25% 15%; /* Darker Gray-Blue */
+        --card-foreground: 150 30% 85%; /* Light Muted Green */
+        --popover: 210 25% 15%;
+        --popover-foreground: 150 30% 85%;
+        --primary: 150 40% 55%; /* Medium Green */
+        --primary-foreground: 210 30% 5%; /* Very Dark Gray-Blue */
+        --secondary: 200 50% 45%; /* Darker Icy Blue */
+        --secondary-foreground: 210 30% 10%; /* Very Dark Gray-Blue */
+        --muted: 210 20% 20%; /* Dark Muted Gray-Blue */
+        --muted-foreground: 150 15% 55%; /* Muted Green-Gray */
+        --accent: 30 25% 40%; /* Dark Earthy Brown */
+        --accent-foreground: 0 0% 98%; /* White */
+        --destructive: 0 62.8% 30.6%; /* Darker Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 210 20% 25%; /* Dark Gray-Blue Border */
+        --input: 210 20% 20%;
+        --ring: 150 40% 55%; /* Medium Green */
+        --sidebar-background: 210 25% 15%; /* Darker Gray-Blue */
+        --sidebar-foreground: 150 30% 85%; /* Light Muted Green */
+        --sidebar-primary: 150 40% 55%; /* Medium Green */
+        --sidebar-primary-foreground: 210 30% 5%; /* Very Dark Gray-Blue */
+        --sidebar-accent: 200 50% 45%; /* Darker Icy Blue */
+        --sidebar-accent-foreground: 210 30% 10%; /* Very Dark Gray-Blue */
+        --sidebar-border: 200 30% 35%; /* Darkest Icy Blue */
+        --sidebar-ring: 150 40% 55%; /* Medium Green */
+    }
+
+    /* Autumn Theme (Light) */
+    .theme-autumn {
+        --background: 30 80% 96%; /* Very Light Warm Yellow */
+        --foreground: 25 70% 30%; /* Deep Brown */
+        --card: 0 0% 100%; /* White */
+        --card-foreground: 25 70% 30%; /* Deep Brown */
+        --popover: 0 0% 100%;
+        --popover-foreground: 25 70% 30%;
+        --primary: 15 85% 55%; /* Burnt Orange */
+        --primary-foreground: 0 0% 100%; /* White */
+        --secondary: 40 90% 60%; /* Golden Yellow */
+        --secondary-foreground: 25 70% 20%; /* Darker Brown */
+        --muted: 30 50% 92%; /* Light Warm Gray */
+        --muted-foreground: 30 30% 55%; /* Warm Gray */
+        --accent: 0 70% 50%; /* Rich Red */
+        --accent-foreground: 0 0% 100%; /* White */
+        --destructive: 0 84.2% 60.2%; /* Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 30 50% 88%; /* Light Warm Gray Border */
+        --input: 30 50% 88%;
+        --ring: 15 85% 55%; /* Burnt Orange */
+        --sidebar-background: 25 70% 30%; /* Deep Brown */
+        --sidebar-foreground: 30 80% 96%; /* Very Light Warm Yellow */
+        --sidebar-primary: 40 90% 60%; /* Golden Yellow */
+        --sidebar-primary-foreground: 25 70% 10%; /* Very Dark Brown */
+        --sidebar-accent: 0 70% 50%; /* Rich Red */
+        --sidebar-accent-foreground: 0 0% 100%; /* White */
+        --sidebar-border: 15 60% 70%; /* Lighter Burnt Orange */
+        --sidebar-ring: 40 90% 60%; /* Golden Yellow */
+    }
+
+    /* Autumn Theme (Dark) */
+    .dark.theme-autumn {
+        --background: 25 60% 10%; /* Very Dark Brown */
+        --foreground: 40 70% 85%; /* Light Golden Yellow */
+        --card: 25 55% 15%; /* Darker Brown */
+        --card-foreground: 40 70% 85%; /* Light Golden Yellow */
+        --popover: 25 55% 15%;
+        --popover-foreground: 40 70% 85%;
+        --primary: 40 85% 55%; /* Brighter Golden Yellow */
+        --primary-foreground: 25 60% 5%; /* Very Dark Brown */
+        --secondary: 15 75% 50%; /* Burnt Orange */
+        --secondary-foreground: 25 60% 10%; /* Very Dark Brown */
+        --muted: 25 40% 20%; /* Dark Muted Brown */
+        --muted-foreground: 30 30% 50%; /* Muted Warm Gray */
+        --accent: 0 60% 45%; /* Darker Rich Red */
+        --accent-foreground: 0 0% 98%; /* White */
+        --destructive: 0 62.8% 30.6%; /* Darker Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 25 40% 25%; /* Dark Brown Border */
+        --input: 25 40% 20%;
+        --ring: 40 85% 55%; /* Brighter Golden Yellow */
+        --sidebar-background: 25 55% 15%; /* Darker Brown */
+        --sidebar-foreground: 40 70% 85%; /* Light Golden Yellow */
+        --sidebar-primary: 40 85% 55%; /* Brighter Golden Yellow */
+        --sidebar-primary-foreground: 25 60% 5%; /* Very Dark Brown */
+        --sidebar-accent: 0 60% 45%; /* Darker Rich Red */
+        --sidebar-accent-foreground: 0 0% 98%; /* White */
+        --sidebar-border: 15 50% 35%; /* Darker Burnt Orange */
+        --sidebar-ring: 40 85% 55%; /* Brighter Golden Yellow */
+    }
+
+    /* Winter Wonderland Theme (Light) */
+    .theme-winter {
+        --background: 210 50% 98%; /* Very Light Blue-Gray */
+        --foreground: 220 30% 40%; /* Slate Gray */
+        --card: 0 0% 100%; /* White */
+        --card-foreground: 220 30% 40%; /* Slate Gray */
+        --popover: 0 0% 100%;
+        --popover-foreground: 220 30% 40%;
+        --primary: 200 80% 70%; /* Icy Blue */
+        --primary-foreground: 220 30% 20%; /* Dark Slate Gray */
+        --secondary: 210 40% 90%; /* Pale Gray */
+        --secondary-foreground: 220 30% 30%; /* Medium Slate Gray */
+        --muted: 210 30% 95%; /* Very Light Gray */
+        --muted-foreground: 210 20% 60%; /* Light Gray */
+        --accent: 240 5% 70%; /* Silver */
+        --accent-foreground: 220 30% 20%; /* Dark Slate Gray */
+        --destructive: 0 84.2% 60.2%; /* Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 210 30% 88%; /* Light Gray Border */
+        --input: 210 30% 88%;
+        --ring: 200 80% 70%; /* Icy Blue */
+        --sidebar-background: 220 30% 40%; /* Slate Gray */
+        --sidebar-foreground: 210 50% 98%; /* Very Light Blue-Gray */
+        --sidebar-primary: 200 80% 70%; /* Icy Blue */
+        --sidebar-primary-foreground: 220 30% 10%; /* Very Dark Slate Gray */
+        --sidebar-accent: 240 5% 70%; /* Silver */
+        --sidebar-accent-foreground: 220 30% 20%; /* Dark Slate Gray */
+        --sidebar-border: 200 50% 80%; /* Lighter Icy Blue */
+        --sidebar-ring: 200 80% 70%; /* Icy Blue */
+    }
+
+    /* Winter Wonderland Theme (Dark) */
+    .dark.theme-winter {
+        --background: 220 40% 10%; /* Very Dark Slate Blue */
+        --foreground: 210 40% 90%; /* Pale Blue */
+        --card: 220 35% 15%; /* Darker Slate Blue */
+        --card-foreground: 210 40% 90%; /* Pale Blue */
+        --popover: 220 35% 15%;
+        --popover-foreground: 210 40% 90%;
+        --primary: 200 70% 60%; /* Brighter Icy Blue */
+        --primary-foreground: 220 40% 5%; /* Very Dark Slate Blue */
+        --secondary: 240 10% 40%; /* Dark Silver/Gray */
+        --secondary-foreground: 210 40% 90%; /* Pale Blue */
+        --muted: 220 25% 20%; /* Dark Muted Slate Blue */
+        --muted-foreground: 210 20% 60%; /* Muted Pale Blue */
+        --accent: 210 30% 50%; /* Medium Slate Blue Accent */
+        --accent-foreground: 0 0% 98%; /* White */
+        --destructive: 0 62.8% 30.6%; /* Darker Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 220 25% 25%; /* Dark Slate Blue Border */
+        --input: 220 25% 20%;
+        --ring: 200 70% 60%; /* Brighter Icy Blue */
+        --sidebar-background: 220 35% 15%; /* Darker Slate Blue */
+        --sidebar-foreground: 210 40% 90%; /* Pale Blue */
+        --sidebar-primary: 200 70% 60%; /* Brighter Icy Blue */
+        --sidebar-primary-foreground: 220 40% 5%; /* Very Dark Slate Blue */
+        --sidebar-accent: 240 10% 40%; /* Dark Silver/Gray */
+        --sidebar-accent-foreground: 210 40% 90%; /* Pale Blue */
+        --sidebar-border: 200 40% 40%; /* Darker Icy Blue */
+        --sidebar-ring: 200 70% 60%; /* Brighter Icy Blue */
+    }
+
+    /* Tropical Paradise Theme (Light) */
+    .theme-tropical {
+        --background: 130 50% 96%; /* Very Light Green */
+        --foreground: 200 70% 30%; /* Deep Ocean Blue */
+        --card: 0 0% 100%; /* White */
+        --card-foreground: 200 70% 30%; /* Deep Ocean Blue */
+        --popover: 0 0% 100%;
+        --popover-foreground: 200 70% 30%;
+        --primary: 140 80% 50%; /* Vibrant Green */
+        --primary-foreground: 0 0% 100%; /* White */
+        --secondary: 50 95% 60%; /* Sunny Yellow */
+        --secondary-foreground: 140 80% 20%; /* Darker Green */
+        --muted: 130 30% 92%; /* Light Grayish Green */
+        --muted-foreground: 130 20% 55%; /* Grayish Green */
+        --accent: 330 80% 65%; /* Vibrant Pink */
+        --accent-foreground: 0 0% 100%; /* White */
+        --destructive: 0 84.2% 60.2%; /* Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 130 30% 88%; /* Light Green Border */
+        --input: 130 30% 88%;
+        --ring: 140 80% 50%; /* Vibrant Green */
+        --sidebar-background: 200 70% 30%; /* Deep Ocean Blue */
+        --sidebar-foreground: 130 50% 96%; /* Very Light Green */
+        --sidebar-primary: 50 95% 60%; /* Sunny Yellow */
+        --sidebar-primary-foreground: 200 70% 10%; /* Very Dark Blue */
+        --sidebar-accent: 330 80% 65%; /* Vibrant Pink */
+        --sidebar-accent-foreground: 0 0% 100%; /* White */
+        --sidebar-border: 140 50% 70%; /* Lighter Vibrant Green */
+        --sidebar-ring: 50 95% 60%; /* Sunny Yellow */
+    }
+
+    /* Tropical Paradise Theme (Dark) */
+    .dark.theme-tropical {
+        --background: 200 60% 10%; /* Very Dark Ocean Blue */
+        --foreground: 140 60% 85%; /* Light Vibrant Green */
+        --card: 200 55% 15%; /* Darker Ocean Blue */
+        --card-foreground: 140 60% 85%; /* Light Vibrant Green */
+        --popover: 200 55% 15%;
+        --popover-foreground: 140 60% 85%;
+        --primary: 50 90% 55%; /* Brighter Sunny Yellow */
+        --primary-foreground: 200 60% 5%; /* Very Dark Ocean Blue */
+        --secondary: 140 70% 45%; /* Vibrant Green */
+        --secondary-foreground: 200 60% 10%; /* Very Dark Ocean Blue */
+        --muted: 200 40% 20%; /* Dark Muted Blue */
+        --muted-foreground: 140 30% 55%; /* Muted Green */
+        --accent: 330 70% 55%; /* Darker Vibrant Pink */
+        --accent-foreground: 0 0% 98%; /* White */
+        --destructive: 0 62.8% 30.6%; /* Darker Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 200 40% 25%; /* Dark Blue Border */
+        --input: 200 40% 20%;
+        --ring: 50 90% 55%; /* Brighter Sunny Yellow */
+        --sidebar-background: 200 55% 15%; /* Darker Ocean Blue */
+        --sidebar-foreground: 140 60% 85%; /* Light Vibrant Green */
+        --sidebar-primary: 50 90% 55%; /* Brighter Sunny Yellow */
+        --sidebar-primary-foreground: 200 60% 5%; /* Very Dark Ocean Blue */
+        --sidebar-accent: 330 70% 55%; /* Darker Vibrant Pink */
+        --sidebar-accent-foreground: 0 0% 98%; /* White */
+        --sidebar-border: 140 40% 35%; /* Darker Vibrant Green */
+        --sidebar-ring: 50 90% 55%; /* Brighter Sunny Yellow */
+    }
+
+    /* Lavender Fields Theme (Light) */
+    .theme-lavender {
+        --background: 270 60% 97%; /* Very Light Lavender */
+        --foreground: 260 30% 40%; /* Muted Purple */
+        --card: 0 0% 100%; /* White */
+        --card-foreground: 260 30% 40%; /* Muted Purple */
+        --popover: 0 0% 100%;
+        --popover-foreground: 260 30% 40%;
+        --primary: 270 70% 65%; /* Soft Purple */
+        --primary-foreground: 0 0% 100%; /* White */
+        --secondary: 100 40% 75%; /* Muted Green */
+        --secondary-foreground: 260 30% 25%; /* Darker Muted Purple */
+        --muted: 270 30% 94%; /* Light Grayish Lavender */
+        --muted-foreground: 270 15% 60%; /* Grayish Lavender */
+        --accent: 60 80% 70%; /* Gentle Yellow */
+        --accent-foreground: 260 30% 20%; /* Darker Muted Purple */
+        --destructive: 0 84.2% 60.2%; /* Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 270 30% 88%; /* Light Lavender Border */
+        --input: 270 30% 88%;
+        --ring: 270 70% 65%; /* Soft Purple */
+        --sidebar-background: 260 30% 40%; /* Muted Purple */
+        --sidebar-foreground: 270 60% 97%; /* Very Light Lavender */
+        --sidebar-primary: 100 40% 75%; /* Muted Green */
+        --sidebar-primary-foreground: 260 30% 15%; /* Very Dark Purple */
+        --sidebar-accent: 60 80% 70%; /* Gentle Yellow */
+        --sidebar-accent-foreground: 260 30% 20%; /* Darker Muted Purple */
+        --sidebar-border: 270 40% 75%; /* Lighter Soft Purple */
+        --sidebar-ring: 100 40% 75%; /* Muted Green */
+    }
+
+    /* Lavender Fields Theme (Dark) */
+    .dark.theme-lavender {
+        --background: 260 40% 10%; /* Very Dark Purple */
+        --foreground: 270 50% 88%; /* Light Lavender */
+        --card: 260 35% 15%; /* Darker Purple */
+        --card-foreground: 270 50% 88%; /* Light Lavender */
+        --popover: 260 35% 15%;
+        --popover-foreground: 270 50% 88%;
+        --primary: 270 60% 60%; /* Brighter Soft Purple */
+        --primary-foreground: 260 40% 5%; /* Very Dark Purple */
+        --secondary: 100 30% 50%; /* Darker Muted Green */
+        --secondary-foreground: 260 40% 10%; /* Very Dark Purple */
+        --muted: 260 25% 20%; /* Dark Muted Purple */
+        --muted-foreground: 270 20% 55%; /* Muted Lavender */
+        --accent: 60 70% 50%; /* Darker Gentle Yellow */
+        --accent-foreground: 260 40% 5%; /* Very Dark Purple */
+        --destructive: 0 62.8% 30.6%; /* Darker Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 260 25% 25%; /* Dark Purple Border */
+        --input: 260 25% 20%;
+        --ring: 270 60% 60%; /* Brighter Soft Purple */
+        --sidebar-background: 260 35% 15%; /* Darker Purple */
+        --sidebar-foreground: 270 50% 88%; /* Light Lavender */
+        --sidebar-primary: 270 60% 60%; /* Brighter Soft Purple */
+        --sidebar-primary-foreground: 260 40% 5%; /* Very Dark Purple */
+        --sidebar-accent: 100 30% 50%; /* Darker Muted Green */
+        --sidebar-accent-foreground: 260 40% 10%; /* Very Dark Purple */
+        --sidebar-border: 270 30% 40%; /* Darker Soft Purple */
+        --sidebar-ring: 270 60% 60%; /* Brighter Soft Purple */
+    }
+
+    /* Urban Night Theme (Light) */
+    .theme-urban {
+        --background: 220 15% 95%; /* Light Gray-Blue */
+        --foreground: 225 30% 20%; /* Deep Navy */
+        --card: 0 0% 100%; /* White */
+        --card-foreground: 225 30% 20%; /* Deep Navy */
+        --popover: 0 0% 100%;
+        --popover-foreground: 225 30% 20%;
+        --primary: 220 20% 40%; /* Charcoal */
+        --primary-foreground: 0 0% 100%; /* White */
+        --secondary: 240 5% 60%; /* Metallic Gray */
+        --secondary-foreground: 225 30% 15%; /* Darker Navy */
+        --muted: 220 10% 90%; /* Very Light Gray-Blue */
+        --muted-foreground: 220 10% 50%; /* Medium Gray-Blue */
+        --accent: 300 100% 65%; /* Bright Neon Pink */
+        --accent-foreground: 0 0% 100%; /* White */
+        --destructive: 0 84.2% 60.2%; /* Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 220 10% 85%; /* Light Gray-Blue Border */
+        --input: 220 10% 85%;
+        --ring: 300 100% 65%; /* Bright Neon Pink */
+        --sidebar-background: 225 30% 20%; /* Deep Navy */
+        --sidebar-foreground: 220 15% 95%; /* Light Gray-Blue */
+        --sidebar-primary: 240 5% 60%; /* Metallic Gray */
+        --sidebar-primary-foreground: 225 30% 5%; /* Very Dark Navy */
+        --sidebar-accent: 300 100% 65%; /* Bright Neon Pink */
+        --sidebar-accent-foreground: 0 0% 100%; /* White */
+        --sidebar-border: 220 20% 50%; /* Darker Charcoal */
+        --sidebar-ring: 240 5% 60%; /* Metallic Gray */
+    }
+
+    /* Urban Night Theme (Dark) */
+    .dark.theme-urban {
+        --background: 225 40% 8%; /* Very Dark Navy */
+        --foreground: 220 20% 90%; /* Light Gray-Blue */
+        --card: 225 35% 12%; /* Darker Navy */
+        --card-foreground: 220 20% 90%; /* Light Gray-Blue */
+        --popover: 225 35% 12%;
+        --popover-foreground: 220 20% 90%;
+        --primary: 180 100% 60%; /* Bright Neon Cyan */
+        --primary-foreground: 225 40% 5%; /* Very Dark Navy */
+        --secondary: 220 15% 30%; /* Dark Charcoal */
+        --secondary-foreground: 220 20% 90%; /* Light Gray-Blue */
+        --muted: 225 25% 18%; /* Dark Muted Navy */
+        --muted-foreground: 220 10% 55%; /* Muted Gray-Blue */
+        --accent: 60 100% 60%; /* Bright Neon Yellow */
+        --accent-foreground: 225 40% 5%; /* Very Dark Navy */
+        --destructive: 0 62.8% 30.6%; /* Darker Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 225 25% 22%; /* Dark Navy Border */
+        --input: 225 25% 18%;
+        --ring: 180 100% 60%; /* Bright Neon Cyan */
+        --sidebar-background: 225 35% 12%; /* Darker Navy */
+        --sidebar-foreground: 220 20% 90%; /* Light Gray-Blue */
+        --sidebar-primary: 180 100% 60%; /* Bright Neon Cyan */
+        --sidebar-primary-foreground: 225 40% 5%; /* Very Dark Navy */
+        --sidebar-accent: 60 100% 60%; /* Bright Neon Yellow */
+        --sidebar-accent-foreground: 225 40% 5%; /* Very Dark Navy */
+        --sidebar-border: 220 15% 40%; /* Darker Charcoal */
+        --sidebar-ring: 180 100% 60%; /* Bright Neon Cyan */
+    }
+
+    /* Meadow Theme (Light) */
+    .theme-meadow {
+        --background: 90 60% 96%; /* Very Light Green */
+        --foreground: 120 50% 30%; /* Medium Green */
+        --card: 0 0% 100%; /* White */
+        --card-foreground: 120 50% 30%; /* Medium Green */
+        --popover: 0 0% 100%;
+        --popover-foreground: 120 50% 30%;
+        --primary: 100 70% 60%; /* Soft Green */
+        --primary-foreground: 0 0% 100%; /* White */
+        --secondary: 330 80% 85%; /* Pastel Pink */
+        --secondary-foreground: 100 70% 25%; /* Darker Soft Green */
+        --muted: 90 40% 92%; /* Light Grayish Green */
+        --muted-foreground: 90 25% 55%; /* Grayish Green */
+        --accent: 60 90% 70%; /* Sunny Yellow */
+        --accent-foreground: 120 50% 20%; /* Dark Medium Green */
+        --destructive: 0 84.2% 60.2%; /* Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 90 40% 88%; /* Light Green Border */
+        --input: 90 40% 88%;
+        --ring: 100 70% 60%; /* Soft Green */
+        --sidebar-background: 120 50% 30%; /* Medium Green */
+        --sidebar-foreground: 90 60% 96%; /* Very Light Green */
+        --sidebar-primary: 330 80% 85%; /* Pastel Pink */
+        --sidebar-primary-foreground: 120 50% 10%; /* Very Dark Green */
+        --sidebar-accent: 60 90% 70%; /* Sunny Yellow */
+        --sidebar-accent-foreground: 120 50% 20%; /* Dark Medium Green */
+        --sidebar-border: 100 50% 70%; /* Lighter Soft Green */
+        --sidebar-ring: 330 80% 85%; /* Pastel Pink */
+    }
+
+    /* Meadow Theme (Dark) */
+    .dark.theme-meadow {
+        --background: 120 40% 10%; /* Very Dark Green */
+        --foreground: 100 50% 88%; /* Light Soft Green */
+        --card: 120 35% 15%; /* Darker Green */
+        --card-foreground: 100 50% 88%; /* Light Soft Green */
+        --popover: 120 35% 15%;
+        --popover-foreground: 100 50% 88%;
+        --primary: 100 60% 55%; /* Brighter Soft Green */
+        --primary-foreground: 120 40% 5%; /* Very Dark Green */
+        --secondary: 330 60% 50%; /* Darker Pastel Pink */
+        --secondary-foreground: 120 40% 10%; /* Very Dark Green */
+        --muted: 120 25% 20%; /* Dark Muted Green */
+        --muted-foreground: 100 20% 55%; /* Muted Soft Green */
+        --accent: 60 80% 50%; /* Darker Sunny Yellow */
+        --accent-foreground: 120 40% 5%; /* Very Dark Green */
+        --destructive: 0 62.8% 30.6%; /* Darker Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 120 25% 25%; /* Dark Green Border */
+        --input: 120 25% 20%;
+        --ring: 100 60% 55%; /* Brighter Soft Green */
+        --sidebar-background: 120 35% 15%; /* Darker Green */
+        --sidebar-foreground: 100 50% 88%; /* Light Soft Green */
+        --sidebar-primary: 100 60% 55%; /* Brighter Soft Green */
+        --sidebar-primary-foreground: 120 40% 5%; /* Very Dark Green */
+        --sidebar-accent: 330 60% 50%; /* Darker Pastel Pink */
+        --sidebar-accent-foreground: 120 40% 10%; /* Very Dark Green */
+        --sidebar-border: 100 40% 40%; /* Darker Soft Green */
+        --sidebar-ring: 100 60% 55%; /* Brighter Soft Green */
+    }
+
+    /* Galaxy Theme (Light) */
+    .theme-galaxy {
+        --background: 250 40% 98%; /* Very Light Purple */
+        --foreground: 260 60% 25%; /* Deep Purple */
+        --card: 0 0% 100%; /* White */
+        --card-foreground: 260 60% 25%; /* Deep Purple */
+        --popover: 0 0% 100%;
+        --popover-foreground: 260 60% 25%;
+        --primary: 240 70% 55%; /* Midnight Blue */
+        --primary-foreground: 0 0% 100%; /* White */
+        --secondary: 310 70% 75%; /* Cosmic Pink */
+        --secondary-foreground: 260 60% 20%; /* Darker Deep Purple */
+        --muted: 250 20% 94%; /* Light Grayish Purple */
+        --muted-foreground: 250 15% 55%; /* Grayish Purple */
+        --accent: 240 10% 75%; /* Shimmering Silver */
+        --accent-foreground: 260 60% 15%; /* Very Dark Purple */
+        --destructive: 0 84.2% 60.2%; /* Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 250 20% 88%; /* Light Purple Border */
+        --input: 250 20% 88%;
+        --ring: 240 70% 55%; /* Midnight Blue */
+        --sidebar-background: 260 60% 25%; /* Deep Purple */
+        --sidebar-foreground: 250 40% 98%; /* Very Light Purple */
+        --sidebar-primary: 310 70% 75%; /* Cosmic Pink */
+        --sidebar-primary-foreground: 260 60% 10%; /* Very Dark Purple */
+        --sidebar-accent: 240 10% 75%; /* Shimmering Silver */
+        --sidebar-accent-foreground: 260 60% 15%; /* Very Dark Purple */
+        --sidebar-border: 240 40% 70%; /* Lighter Midnight Blue */
+        --sidebar-ring: 310 70% 75%; /* Cosmic Pink */
+    }
+
+    /* Galaxy Theme (Dark) */
+    .dark.theme-galaxy {
+        --background: 260 50% 8%; /* Very Dark Purple */
+        --foreground: 250 40% 90%; /* Light Lavender */
+        --card: 260 45% 12%; /* Darker Purple */
+        --card-foreground: 250 40% 90%; /* Light Lavender */
+        --popover: 260 45% 12%;
+        --popover-foreground: 250 40% 90%;
+        --primary: 310 80% 65%; /* Brighter Cosmic Pink */
+        --primary-foreground: 260 50% 5%; /* Very Dark Purple */
+        --secondary: 240 60% 45%; /* Deep Midnight Blue */
+        --secondary-foreground: 250 40% 90%; /* Light Lavender */
+        --muted: 260 30% 18%; /* Dark Muted Purple */
+        --muted-foreground: 250 20% 55%; /* Muted Lavender */
+        --accent: 240 15% 50%; /* Dark Shimmering Silver/Gray */
+        --accent-foreground: 0 0% 98%; /* White */
+        --destructive: 0 62.8% 30.6%; /* Darker Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 260 30% 22%; /* Dark Purple Border */
+        --input: 260 30% 18%;
+        --ring: 310 80% 65%; /* Brighter Cosmic Pink */
+        --sidebar-background: 260 45% 12%; /* Darker Purple */
+        --sidebar-foreground: 250 40% 90%; /* Light Lavender */
+        --sidebar-primary: 310 80% 65%; /* Brighter Cosmic Pink */
+        --sidebar-primary-foreground: 260 50% 5%; /* Very Dark Purple */
+        --sidebar-accent: 240 15% 50%; /* Dark Shimmering Silver/Gray */
+        --sidebar-accent-foreground: 0 0% 98%; /* White */
+        --sidebar-border: 240 30% 35%; /* Darker Midnight Blue */
+        --sidebar-ring: 310 80% 65%; /* Brighter Cosmic Pink */
+    }
+
+    /* Rainforest Theme (Light) */
+    .theme-rainforest {
+        --background: 120 40% 97%; /* Very Light Green */
+        --foreground: 150 60% 25%; /* Deep Teal Green */
+        --card: 0 0% 100%; /* White */
+        --card-foreground: 150 60% 25%; /* Deep Teal Green */
+        --popover: 0 0% 100%;
+        --popover-foreground: 150 60% 25%;
+        --primary: 140 80% 45%; /* Lush Green */
+        --primary-foreground: 0 0% 100%; /* White */
+        --secondary: 50 90% 65%; /* Vibrant Yellow */
+        --secondary-foreground: 140 80% 15%; /* Darker Lush Green */
+        --muted: 120 25% 93%; /* Light Grayish Green */
+        --muted-foreground: 120 15% 55%; /* Grayish Green */
+        --accent: 30 50% 50%; /* Earthy Brown */
+        --accent-foreground: 0 0% 100%; /* White */
+        --destructive: 0 84.2% 60.2%; /* Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 120 25% 88%; /* Light Green Border */
+        --input: 120 25% 88%;
+        --ring: 140 80% 45%; /* Lush Green */
+        --sidebar-background: 150 60% 25%; /* Deep Teal Green */
+        --sidebar-foreground: 120 40% 97%; /* Very Light Green */
+        --sidebar-primary: 50 90% 65%; /* Vibrant Yellow */
+        --sidebar-primary-foreground: 150 60% 10%; /* Very Dark Teal Green */
+        --sidebar-accent: 30 50% 50%; /* Earthy Brown */
+        --sidebar-accent-foreground: 0 0% 100%; /* White */
+        --sidebar-border: 140 50% 65%; /* Lighter Lush Green */
+        --sidebar-ring: 50 90% 65%; /* Vibrant Yellow */
+    }
+
+    /* Rainforest Theme (Dark) */
+    .dark.theme-rainforest {
+        --background: 150 50% 8%; /* Very Dark Teal Green */
+        --foreground: 120 40% 90%; /* Light Green */
+        --card: 150 45% 12%; /* Darker Teal Green */
+        --card-foreground: 120 40% 90%; /* Light Green */
+        --popover: 150 45% 12%;
+        --popover-foreground: 120 40% 90%;
+        --primary: 140 70% 50%; /* Brighter Lush Green */
+        --primary-foreground: 150 50% 5%; /* Very Dark Teal Green */
+        --secondary: 50 80% 50%; /* Darker Vibrant Yellow */
+        --secondary-foreground: 150 50% 10%; /* Very Dark Teal Green */
+        --muted: 150 30% 18%; /* Dark Muted Teal */
+        --muted-foreground: 120 20% 55%; /* Muted Green */
+        --accent: 30 40% 40%; /* Dark Earthy Brown */
+        --accent-foreground: 0 0% 98%; /* White */
+        --destructive: 0 62.8% 30.6%; /* Darker Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 150 30% 22%; /* Dark Teal Border */
+        --input: 150 30% 18%;
+        --ring: 140 70% 50%; /* Brighter Lush Green */
+        --sidebar-background: 150 45% 12%; /* Darker Teal Green */
+        --sidebar-foreground: 120 40% 90%; /* Light Green */
+        --sidebar-primary: 140 70% 50%; /* Brighter Lush Green */
+        --sidebar-primary-foreground: 150 50% 5%; /* Very Dark Teal Green */
+        --sidebar-accent: 30 40% 40%; /* Dark Earthy Brown */
+        --sidebar-accent-foreground: 0 0% 98%; /* White */
+        --sidebar-border: 140 40% 30%; /* Darker Lush Green */
+        --sidebar-ring: 140 70% 50%; /* Brighter Lush Green */
+    }
+
+    /* Vintage Retro Theme (Light) */
+    .theme-vintage {
+        --background: 40 50% 96%; /* Cream */
+        --foreground: 30 60% 35%; /* Warm Brown */
+        --card: 0 0% 100%; /* White */
+        --card-foreground: 30 60% 35%; /* Warm Brown */
+        --popover: 0 0% 100%;
+        --popover-foreground: 30 60% 35%;
+        --primary: 20 70% 65%; /* Muted Orange */
+        --primary-foreground: 0 0% 100%; /* White */
+        --secondary: 180 30% 70%; /* Muted Teal */
+        --secondary-foreground: 30 60% 25%; /* Darker Warm Brown */
+        --muted: 40 30% 92%; /* Light Grayish Cream */
+        --muted-foreground: 40 20% 55%; /* Grayish Cream */
+        --accent: 50 70% 75%; /* Soft Yellow */
+        --accent-foreground: 30 60% 20%; /* Darker Warm Brown */
+        --destructive: 0 84.2% 60.2%; /* Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 40 30% 88%; /* Light Cream Border */
+        --input: 40 30% 88%;
+        --ring: 20 70% 65%; /* Muted Orange */
+        --sidebar-background: 30 60% 35%; /* Warm Brown */
+        --sidebar-foreground: 40 50% 96%; /* Cream */
+        --sidebar-primary: 180 30% 70%; /* Muted Teal */
+        --sidebar-primary-foreground: 30 60% 15%; /* Very Dark Brown */
+        --sidebar-accent: 50 70% 75%; /* Soft Yellow */
+        --sidebar-accent-foreground: 30 60% 20%; /* Darker Warm Brown */
+        --sidebar-border: 20 50% 75%; /* Lighter Muted Orange */
+        --sidebar-ring: 180 30% 70%; /* Muted Teal */
+    }
+
+    /* Vintage Retro Theme (Dark) */
+    .dark.theme-vintage {
+        --background: 30 50% 10%; /* Very Dark Warm Brown */
+        --foreground: 40 40% 88%; /* Light Cream */
+        --card: 30 45% 15%; /* Darker Warm Brown */
+        --card-foreground: 40 40% 88%; /* Light Cream */
+        --popover: 30 45% 15%;
+        --popover-foreground: 40 40% 88%;
+        --primary: 50 60% 60%; /* Brighter Soft Yellow */
+        --primary-foreground: 30 50% 5%; /* Very Dark Warm Brown */
+        --secondary: 20 60% 50%; /* Darker Muted Orange */
+        --secondary-foreground: 30 50% 10%; /* Very Dark Warm Brown */
+        --muted: 30 30% 20%; /* Dark Muted Brown */
+        --muted-foreground: 40 20% 55%; /* Muted Cream */
+        --accent: 180 25% 45%; /* Darker Muted Teal */
+        --accent-foreground: 0 0% 98%; /* White */
+        --destructive: 0 62.8% 30.6%; /* Darker Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 30 30% 25%; /* Dark Brown Border */
+        --input: 30 30% 20%;
+        --ring: 50 60% 60%; /* Brighter Soft Yellow */
+        --sidebar-background: 30 45% 15%; /* Darker Warm Brown */
+        --sidebar-foreground: 40 40% 88%; /* Light Cream */
+        --sidebar-primary: 50 60% 60%; /* Brighter Soft Yellow */
+        --sidebar-primary-foreground: 30 50% 5%; /* Very Dark Warm Brown */
+        --sidebar-accent: 180 25% 45%; /* Darker Muted Teal */
+        --sidebar-accent-foreground: 0 0% 98%; /* White */
+        --sidebar-border: 20 40% 40%; /* Darkest Muted Orange */
+        --sidebar-ring: 50 60% 60%; /* Brighter Soft Yellow */
+    }
+
+    /* Ice Cream Parlor Theme (Light) */
+    .theme-icecream {
+        --background: 340 70% 97%; /* Very Light Pink */
+        --foreground: 150 40% 40%; /* Mint Green */
+        --card: 0 0% 100%; /* Creamy White */
+        --card-foreground: 150 40% 40%; /* Mint Green */
+        --popover: 0 0% 100%;
+        --popover-foreground: 150 40% 40%;
+        --primary: 340 80% 80%; /* Soft Pink */
+        --primary-foreground: 340 50% 20%; /* Darker Pink */
+        --secondary: 40 60% 85%; /* Light Brown (Waffle Cone) */
+        --secondary-foreground: 40 40% 30%; /* Darker Brown */
+        --muted: 340 40% 94%; /* Light Grayish Pink */
+        --muted-foreground: 340 20% 60%; /* Grayish Pink */
+        --accent: 160 60% 75%; /* Light Mint Green */
+        --accent-foreground: 160 40% 25%; /* Darker Mint Green */
+        --destructive: 0 84.2% 60.2%; /* Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 340 40% 88%; /* Light Pink Border */
+        --input: 340 40% 88%;
+        --ring: 340 80% 80%; /* Soft Pink */
+        --sidebar-background: 150 40% 40%; /* Mint Green */
+        --sidebar-foreground: 340 70% 97%; /* Very Light Pink */
+        --sidebar-primary: 340 80% 80%; /* Soft Pink */
+        --sidebar-primary-foreground: 150 40% 15%; /* Very Dark Mint */
+        --sidebar-accent: 40 60% 85%; /* Light Brown */
+        --sidebar-accent-foreground: 40 40% 30%; /* Darker Brown */
+        --sidebar-border: 340 50% 85%; /* Lighter Soft Pink */
+        --sidebar-ring: 340 80% 80%; /* Soft Pink */
+    }
+
+    /* Ice Cream Parlor Theme (Dark) */
+    .dark.theme-icecream {
+        --background: 340 30% 15%; /* Dark Muted Pink */
+        --foreground: 160 50% 85%; /* Light Mint Green */
+        --card: 340 25% 20%; /* Darker Muted Pink */
+        --card-foreground: 160 50% 85%; /* Light Mint Green */
+        --popover: 340 25% 20%;
+        --popover-foreground: 160 50% 85%;
+        --primary: 160 60% 60%; /* Brighter Mint Green */
+        --primary-foreground: 340 30% 5%; /* Very Dark Pink */
+        --secondary: 340 50% 45%; /* Darker Soft Pink */
+        --secondary-foreground: 340 30% 10%; /* Very Dark Pink */
+        --muted: 340 15% 25%; /* Darkest Muted Pink */
+        --muted-foreground: 160 20% 55%; /* Muted Mint Green */
+        --accent: 40 50% 50%; /* Darker Light Brown */
+        --accent-foreground: 340 30% 5%; /* Very Dark Pink */
+        --destructive: 0 62.8% 30.6%; /* Darker Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 340 15% 30%; /* Dark Pink Border */
+        --input: 340 15% 25%;
+        --ring: 160 60% 60%; /* Brighter Mint Green */
+        --sidebar-background: 340 25% 20%; /* Darker Muted Pink */
+        --sidebar-foreground: 160 50% 85%; /* Light Mint Green */
+        --sidebar-primary: 160 60% 60%; /* Brighter Mint Green */
+        --sidebar-primary-foreground: 340 30% 5%; /* Very Dark Pink */
+        --sidebar-accent: 40 50% 50%; /* Darker Light Brown */
+        --sidebar-accent-foreground: 340 30% 5%; /* Very Dark Pink */
+        --sidebar-border: 160 30% 40%; /* Darkest Mint Green */
+        --sidebar-ring: 160 60% 60%; /* Brighter Mint Green */
+    }
+
+    /* Candlelit Evening Theme (Light) */
+    .theme-candlelit {
+        --background: 35 80% 96%; /* Warm Cream */
+        --foreground: 15 70% 30%; /* Rich Brown */
+        --card: 0 0% 100%; /* White */
+        --card-foreground: 15 70% 30%; /* Rich Brown */
+        --popover: 0 0% 100%;
+        --popover-foreground: 15 70% 30%;
+        --primary: 30 90% 60%; /* Warm Amber */
+        --primary-foreground: 0 0% 100%; /* White */
+        --secondary: 45 80% 70%; /* Soft Gold */
+        --secondary-foreground: 15 70% 20%; /* Darker Rich Brown */
+        --muted: 35 50% 92%; /* Light Warm Gray */
+        --muted-foreground: 35 30% 55%; /* Warm Gray */
+        --accent: 0 60% 50%; /* Deep Burgundy */
+        --accent-foreground: 0 0% 100%; /* White */
+        --destructive: 0 84.2% 60.2%; /* Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 35 50% 88%; /* Light Warm Gray Border */
+        --input: 35 50% 88%;
+        --ring: 30 90% 60%; /* Warm Amber */
+        --sidebar-background: 15 70% 30%; /* Rich Brown */
+        --sidebar-foreground: 35 80% 96%; /* Warm Cream */
+        --sidebar-primary: 45 80% 70%; /* Soft Gold */
+        --sidebar-primary-foreground: 15 70% 10%; /* Very Dark Brown */
+        --sidebar-accent: 0 60% 50%; /* Deep Burgundy */
+        --sidebar-accent-foreground: 0 0% 100%; /* White */
+        --sidebar-border: 30 60% 70%; /* Lighter Warm Amber */
+        --sidebar-ring: 45 80% 70%; /* Soft Gold */
+    }
+
+    /* Candlelit Evening Theme (Dark) */
+    .dark.theme-candlelit {
+        --background: 20 60% 10%; /* Very Dark Brown */
+        --foreground: 40 70% 85%; /* Light Gold */
+        --card: 20 55% 15%; /* Darker Brown */
+        --card-foreground: 40 70% 85%; /* Light Gold */
+        --popover: 20 55% 15%;
+        --popover-foreground: 40 70% 85%;
+        --primary: 45 80% 60%; /* Brighter Soft Gold */
+        --primary-foreground: 20 60% 5%; /* Very Dark Brown */
+        --secondary: 30 80% 50%; /* Warm Amber */
+        --secondary-foreground: 20 60% 10%; /* Very Dark Brown */
+        --muted: 20 40% 20%; /* Dark Muted Brown */
+        --muted-foreground: 35 30% 50%; /* Muted Warm Gray */
+        --accent: 0 50% 40%; /* Darker Deep Burgundy */
+        --accent-foreground: 0 0% 98%; /* White */
+        --destructive: 0 62.8% 30.6%; /* Darker Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 20 40% 25%; /* Dark Brown Border */
+        --input: 20 40% 20%;
+        --ring: 45 80% 60%; /* Brighter Soft Gold */
+        --sidebar-background: 20 55% 15%; /* Darker Brown */
+        --sidebar-foreground: 40 70% 85%; /* Light Gold */
+        --sidebar-primary: 45 80% 60%; /* Brighter Soft Gold */
+        --sidebar-primary-foreground: 20 60% 5%; /* Very Dark Brown */
+        --sidebar-accent: 0 50% 40%; /* Darker Deep Burgundy */
+        --sidebar-accent-foreground: 0 0% 98%; /* White */
+        --sidebar-border: 30 50% 40%; /* Darker Warm Amber */
+        --sidebar-ring: 45 80% 60%; /* Brighter Soft Gold */
+    }
+
+    /* Seaside Cottage Theme (Light) */
+    .theme-seaside {
+        --background: 200 60% 97%; /* Very Light Blue */
+        --foreground: 215 40% 35%; /* Muted Navy */
+        --card: 0 0% 100%; /* White */
+        --card-foreground: 215 40% 35%; /* Muted Navy */
+        --popover: 0 0% 100%;
+        --popover-foreground: 215 40% 35%;
+        --primary: 190 70% 60%; /* Soft Blue */
+        --primary-foreground: 0 0% 100%; /* White */
+        --secondary: 40 70% 85%; /* Sandy Beige */
+        --secondary-foreground: 190 70% 25%; /* Darker Soft Blue */
+        --muted: 200 40% 93%; /* Light Grayish Blue */
+        --muted-foreground: 200 25% 55%; /* Grayish Blue */
+        --accent: 0 80% 70%; /* Coral Accent */
+        --accent-foreground: 0 0% 100%; /* White */
+        --destructive: 0 84.2% 60.2%; /* Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 200 40% 88%; /* Light Blue Border */
+        --input: 200 40% 88%;
+        --ring: 190 70% 60%; /* Soft Blue */
+        --sidebar-background: 215 40% 35%; /* Muted Navy */
+        --sidebar-foreground: 200 60% 97%; /* Very Light Blue */
+        --sidebar-primary: 40 70% 85%; /* Sandy Beige */
+        --sidebar-primary-foreground: 215 40% 15%; /* Very Dark Navy */
+        --sidebar-accent: 0 80% 70%; /* Coral Accent */
+        --sidebar-accent-foreground: 0 0% 100%; /* White */
+        --sidebar-border: 190 50% 75%; /* Lighter Soft Blue */
+        --sidebar-ring: 40 70% 85%; /* Sandy Beige */
+    }
+
+    /* Seaside Cottage Theme (Dark) */
+    .dark.theme-seaside {
+        --background: 215 50% 10%; /* Very Dark Navy */
+        --foreground: 190 50% 88%; /* Light Soft Blue */
+        --card: 215 45% 15%; /* Darker Navy */
+        --card-foreground: 190 50% 88%; /* Light Soft Blue */
+        --popover: 215 45% 15%;
+        --popover-foreground: 190 50% 88%;
+        --primary: 190 60% 55%; /* Brighter Soft Blue */
+        --primary-foreground: 215 50% 5%; /* Very Dark Navy */
+        --secondary: 40 60% 50%; /* Darker Sandy Beige */
+        --secondary-foreground: 215 50% 10%; /* Very Dark Navy */
+        --muted: 215 30% 20%; /* Dark Muted Navy */
+        --muted-foreground: 190 20% 55%; /* Muted Soft Blue */
+        --accent: 0 70% 50%; /* Darker Coral Accent */
+        --accent-foreground: 0 0% 98%; /* White */
+        --destructive: 0 62.8% 30.6%; /* Darker Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 215 30% 25%; /* Dark Navy Border */
+        --input: 215 30% 20%;
+        --ring: 190 60% 55%; /* Brighter Soft Blue */
+        --sidebar-background: 215 45% 15%; /* Darker Navy */
+        --sidebar-foreground: 190 50% 88%; /* Light Soft Blue */
+        --sidebar-primary: 190 60% 55%; /* Brighter Soft Blue */
+        --sidebar-primary-foreground: 215 50% 5%; /* Very Dark Navy */
+        --sidebar-accent: 0 70% 50%; /* Darker Coral Accent */
+        --sidebar-accent-foreground: 0 0% 98%; /* White */
+        --sidebar-border: 190 30% 40%; /* Darkest Soft Blue */
+        --sidebar-ring: 190 60% 55%; /* Brighter Soft Blue */
+    }
+
+    /* Wildflower Garden Theme (Light) */
+    .theme-wildflower {
+        --background: 100 60% 96%; /* Very Light Leaf Green */
+        --foreground: 130 50% 30%; /* Forest Green */
+        --card: 0 0% 100%; /* White */
+        --card-foreground: 130 50% 30%; /* Forest Green */
+        --popover: 0 0% 100%;
+        --popover-foreground: 130 50% 30%;
+        --primary: 60 95% 60%; /* Bright Yellow */
+        --primary-foreground: 130 50% 20%; /* Darker Forest Green */
+        --secondary: 280 70% 75%; /* Soft Purple */
+        --secondary-foreground: 130 50% 25%; /* Darker Forest Green */
+        --muted: 100 40% 92%; /* Light Grayish Green */
+        --muted-foreground: 100 25% 55%; /* Grayish Green */
+        --accent: 0 85% 65%; /* Vibrant Red */
+        --accent-foreground: 0 0% 100%; /* White */
+        --destructive: 0 84.2% 60.2%; /* Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 100 40% 88%; /* Light Green Border */
+        --input: 100 40% 88%;
+        --ring: 60 95% 60%; /* Bright Yellow */
+        --sidebar-background: 130 50% 30%; /* Forest Green */
+        --sidebar-foreground: 100 60% 96%; /* Very Light Leaf Green */
+        --sidebar-primary: 280 70% 75%; /* Soft Purple */
+        --sidebar-primary-foreground: 130 50% 10%; /* Very Dark Green */
+        --sidebar-accent: 0 85% 65%; /* Vibrant Red */
+        --sidebar-accent-foreground: 0 0% 100%; /* White */
+        --sidebar-border: 60 70% 75%; /* Lighter Bright Yellow */
+        --sidebar-ring: 280 70% 75%; /* Soft Purple */
+    }
+
+    /* Wildflower Garden Theme (Dark) */
+    .dark.theme-wildflower {
+        --background: 130 40% 10%; /* Very Dark Forest Green */
+        --foreground: 100 50% 88%; /* Light Leaf Green */
+        --card: 130 35% 15%; /* Darker Forest Green */
+        --card-foreground: 100 50% 88%; /* Light Leaf Green */
+        --popover: 130 35% 15%;
+        --popover-foreground: 100 50% 88%;
+        --primary: 60 90% 55%; /* Brighter Yellow */
+        --primary-foreground: 130 40% 5%; /* Very Dark Forest Green */
+        --secondary: 280 60% 50%; /* Darker Soft Purple */
+        --secondary-foreground: 130 40% 10%; /* Very Dark Forest Green */
+        --muted: 130 25% 20%; /* Dark Muted Green */
+        --muted-foreground: 100 20% 55%; /* Muted Leaf Green */
+        --accent: 0 75% 50%; /* Darker Vibrant Red */
+        --accent-foreground: 0 0% 98%; /* White */
+        --destructive: 0 62.8% 30.6%; /* Darker Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 130 25% 25%; /* Dark Green Border */
+        --input: 130 25% 20%;
+        --ring: 60 90% 55%; /* Brighter Yellow */
+        --sidebar-background: 130 35% 15%; /* Darker Forest Green */
+        --sidebar-foreground: 100 50% 88%; /* Light Leaf Green */
+        --sidebar-primary: 60 90% 55%; /* Brighter Yellow */
+        --sidebar-primary-foreground: 130 40% 5%; /* Very Dark Forest Green */
+        --sidebar-accent: 0 75% 50%; /* Darker Vibrant Red */
+        --sidebar-accent-foreground: 0 0% 98%; /* White */
+        --sidebar-border: 280 40% 40%; /* Darkest Soft Purple */
+        --sidebar-ring: 60 90% 55%; /* Brighter Yellow */
+    }
+
+    /* Crimson Ember Theme (Light) */
+    .theme-crimson {
+        --background: 0 30% 97%; /* Very Light Red-Gray */
+        --foreground: 0 80% 25%; /* Deep Crimson */
+        --card: 0 0% 100%; /* White */
+        --card-foreground: 0 80% 25%; /* Deep Crimson */
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 80% 25%;
+        --primary: 0 90% 50%; /* Deep Red */
+        --primary-foreground: 0 0% 100%; /* White */
+        --secondary: 20 85% 60%; /* Burnt Orange */
+        --secondary-foreground: 0 80% 15%; /* Darker Crimson */
+        --muted: 0 10% 92%; /* Light Gray */
+        --muted-foreground: 0 5% 55%; /* Medium Gray */
+        --accent: 40 80% 65%; /* Warm Gold */
+        --accent-foreground: 0 80% 10%; /* Very Dark Crimson */
+        --destructive: 0 84.2% 60.2%; /* Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 0 10% 88%; /* Light Gray Border */
+        --input: 0 10% 88%;
+        --ring: 0 90% 50%; /* Deep Red */
+        --sidebar-background: 0 80% 25%; /* Deep Crimson */
+        --sidebar-foreground: 0 30% 97%; /* Very Light Red-Gray */
+        --sidebar-primary: 20 85% 60%; /* Burnt Orange */
+        --sidebar-primary-foreground: 0 80% 5%; /* Very Dark Crimson */
+        --sidebar-accent: 40 80% 65%; /* Warm Gold */
+        --sidebar-accent-foreground: 0 80% 10%; /* Very Dark Crimson */
+        --sidebar-border: 0 60% 70%; /* Lighter Deep Red */
+        --sidebar-ring: 20 85% 60%; /* Burnt Orange */
+    }
+
+    /* Crimson Ember Theme (Dark) */
+    .dark.theme-crimson {
+        --background: 0 70% 8%; /* Very Dark Crimson/Black */
+        --foreground: 0 40% 90%; /* Light Red-Gray */
+        --card: 0 65% 12%; /* Darker Crimson */
+        --card-foreground: 0 40% 90%; /* Light Red-Gray */
+        --popover: 0 65% 12%;
+        --popover-foreground: 0 40% 90%;
+        --primary: 0 80% 55%; /* Brighter Deep Red */
+        --primary-foreground: 0 70% 5%; /* Very Dark Crimson/Black */
+        --secondary: 20 75% 50%; /* Darker Burnt Orange */
+        --secondary-foreground: 0 70% 10%; /* Very Dark Crimson/Black */
+        --muted: 0 50% 18%; /* Dark Muted Crimson */
+        --muted-foreground: 0 20% 55%; /* Muted Red-Gray */
+        --accent: 40 70% 50%; /* Darker Warm Gold */
+        --accent-foreground: 0 70% 5%; /* Very Dark Crimson/Black */
+        --destructive: 0 62.8% 30.6%; /* Darker Red */
+        --destructive-foreground: 0 0% 98%; /* White */
+        --border: 0 50% 22%; /* Dark Crimson Border */
+        --input: 0 50% 18%;
+        --ring: 0 80% 55%; /* Brighter Deep Red */
+        --sidebar-background: 0 65% 12%; /* Darker Crimson */
+        --sidebar-foreground: 0 40% 90%; /* Light Red-Gray */
+        --sidebar-primary: 0 80% 55%; /* Brighter Deep Red */
+        --sidebar-primary-foreground: 0 70% 5%; /* Very Dark Crimson/Black */
+        --sidebar-accent: 40 70% 50%; /* Darker Warm Gold */
+        --sidebar-accent-foreground: 0 70% 5%; /* Very Dark Crimson/Black */
+        --sidebar-border: 20 50% 40%; /* Darkest Burnt Orange */
+        --sidebar-ring: 0 80% 55%; /* Brighter Deep Red */
+    }
+
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-200 ease-in-out; /* Added transition */
+  }
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slideInFromLeft {
+  animation: slideInFromLeft 0.5s ease-out forwards;
+}
+
+.animate-slideInFromRight {
+  animation: slideInFromRight 0.5s ease-out forwards;
+}
+
+.animate-scaleUp {
+    animation: scaleUp 0.5s ease-out forwards;
+}
+
+/* Button hover effects */
+.btn-hover-scale {
+  @apply transition-transform duration-200 ease-in-out hover:scale-105;
+}
+
+.btn-hover-shadow {
+  @apply transition-shadow duration-200 ease-in-out hover:shadow-lg;
+}
+
+/* Link hover effect */
+.link-underline-grow {
+  @apply relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full;
+}
+
+/* Icon hover effect */
+.icon-rotate-hover {
+  @apply transition-transform duration-300 ease-in-out hover:rotate-12;
+}
+
+/* Tooltip animation (using ShadCN default, can customize further if needed) */
+/* .tooltip-fade-in {} */
+
+/* Add more complex animations using libraries or custom keyframes as needed */
+
+/* Animation delays */
+.animation-delay-100 { animation-delay: 0.1s; }
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-300 { animation-delay: 0.3s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+.animation-delay-500 { animation-delay: 0.5s; }
+.animation-delay-600 { animation-delay: 0.6s; }
+.animation-delay-700 { animation-delay: 0.7s; }
+.animation-delay-800 { animation-delay: 0.8s; }
+.animation-delay-900 { animation-delay: 0.9s; }
+.animation-delay-1000 { animation-delay: 1.0s; }
+.animation-delay-1100 { animation-delay: 1.1s; }
+.animation-delay-1200 { animation-delay: 1.2s; }
+.animation-delay-1300 { animation-delay: 1.3s; }
+.animation-delay-1400 { animation-delay: 1.4s; }
+.animation-delay-1500 { animation-delay: 1.5s; }

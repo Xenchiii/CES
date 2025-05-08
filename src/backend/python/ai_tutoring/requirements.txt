@@ -1,0 +1,5 @@
+Flask>=2.0
+# Add other dependencies here, e.g.:
+# tensorflow
+# torch
+# requests (if calling external APIs)

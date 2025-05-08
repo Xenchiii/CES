@@ -1,0 +1,95 @@
+# **App Name**: ICCT COLLEGES COMPUTER EXPLORER SOCIETY - ANTIPOLO CAMPUS
+
+## Core Features:
+
+- Event Calendar: Display a calendar of events for the Computer Explorer Society - Antipolo Campus.
+- News Feed: Display announcements and news related to the organization.
+- Contact Form: Provide a contact form for inquiries and membership applications.
+- Navigation Bar with Logo: Navigation bar on the side, with logo on the top left. Includes links to Home, Events, Sub-org, Membership, About, and Contact pages. Pressing on dashboard relocates user to a different page
+- Membership: Allow students to become members of the organization. Membership options: Computer Explorer Society (CES) - 20 pesos, ICSO - 20 pesos, Sub-organization - 15 pesos. Includes options to choose a sub-organization: AI Mentors, Algorithm Knights, Code Warriors, Cybernet Rangers, Digital Expressionists, GHZ Builders, Mobile Mnemonics, Web Arachnids. Allows for Gcash transactions with redirection to Gcash payment page. Includes an 'Email' box for students to enter their email for payment confirmation.
+- Membership Catalog: Display available memberships (Computer explorer society, sub-org, and ICSO) with descriptions and pricing. Computer Explorer Society (20), ICSO (20), Sub-organizations (15): GHZ Builders, Digital Expressionist, Web Arachnids, Mobile mnemonics, Code warriors, AI mentors, Cybernet Rangers, Algorithm Knights.
+- Payment Processing: Securely process payments using a service like Stripe or Paypal. The payment confirmation page will act as the receipt.
+- Digital Receipt: Generate and display a digital receipt upon successful payment. This receipt will be displayed immediately after payment confirmation.
+
+## Style Guidelines:
+
+- Primary color: Dark Blue (#003049) to convey professionalism and trust.
+- Secondary color: Bumblebee (#FCE205) for a modern and clean feel.
+- Accent: Steel (#4682B4) to highlight important information and calls to action.
+- Clean and modern layout with clear sections for events, news, and contact information.
+- Use simple, professional icons to represent different categories (e.g., events, news, contact).
+- Subtle animations for transitions and loading states to enhance user experience. Do hover, CSS animations, whole page motion, Bounce.js
+- Button color changes, scale grow/shrink, shadows, or underline animations on text links.
+- Icon or image rotations or subtle movement on hover.
+- Tooltip fade-ins or slide-ins on hover.
+- Animate elements into view as the user scrolls (fade, slide, zoom). Libraries like AOS (Animate On Scroll) or Intersection Observer API can help.
+- Parallax scrolling effects where background and foreground elements move at different speeds for depth.
+- Animate elements appearing or disappearing from the screen (slide from left/right/top/bottom, fade in/out).
+- Modal or popup animations scaling from zero to full size.
+- Particle effects or animated gradients as page backgrounds to create a dynamic look.
+- Moving shapes or abstract patterns using CSS or Canvas.
+- Small animation details like button ripple effects, input field focus effects, toggles switching with smooth motion.
+- Spinners, skeleton loaders, progress bars, or dot bouncing animations while content loads.
+- Typing effects that simulate text being typed out.
+- Letter or word fade/slide animations on page load or on hover.
+- Bounce.js provides pre-built bouncing animations you can apply to elements like buttons, icons, or notifications. Good for grabbing attention.
+- Libraries like GSAP (GreenSock) offer high performance timeline control, advanced easing, and sequencing animations. Perfect for sophisticated whole page or component animations.
+- Transition effects when navigating between pages (fade out/in, slide).
+- Animated page cursors or pointer trails.
+- Full-screen overlays that animate during interactions.
+- Animate SVG graphics for logos, icons, or illustrations (stroke drawing, morphing shapes, color fill).
+- Create or commission unique SVG icons that align with your brand identity and style. SVGs are scalable without loss of quality and highly customizable with CSS/JS.
+- Use subtle animations on SVG icons to make them interactive and engaging.
+- Use popular, polished icon sets such as Font Awesome Pro, Material Design Icons, or Heroicons.
+- These provide a wide variety of professional, consistent icons.
+- Consider icon sets with filled, outline, or dual-tone styles for flexibility.
+- Use hand-drawn or semi-illustrative icons for a friendly and approachable feel.
+- Combine icons with simple illustrations or graphics for richer visual context.
+- Use subtle 3D-style or isometric icons, which add depth and modernity without overwhelming the interface.
+- These can be sourced from icon packs or custom designed.
+- Use lightweight animated SVG icons with tools like LottieFiles (using JSON animation data with libraries like lottie-web).
+- Animated icons can guide users’ attention and provide feedback (e.g., checkmarks after actions).
+- Use icon fonts (like Font Awesome or IcoMoon) but customize colors, sizes, and hover effects to fit your branding and UI.
+- Choose icon sets themed specifically for your domain, such as education, technology, or community, so icons feel more relevant.
+- Use icons that visually represent the exact categories well with recognizable metaphors.
+- Regardless of the icon set, ensure consistent line thickness, stroke style, corner rounding, and --- color palette across all icons to create a unified look.
+- Ensure icons have appropriate aria-labels, titles, or tooltips for screen readers and a11y support.
+- Large hero banners featuring a featured event or news item.
+- Multiple columns with cards for upcoming events, recent news, and featured members.
+- Use bold typography and visual hierarchy like a news portal.
+- Infinite scroll or pagination for news/events feed.
+- Sidebar or footer with a quick contact form and social media links.
+- Entire site content on one long scroll page with distinct full-width sections for Events, News, Membership, Contact, etc.
+- Smooth scrolling and animated transitions triggered as sections come into view.
+- Sticky navigation bar that highlights the current section.
+- Parallax backgrounds or layered effects for depth.
+- Dashboard style homepage with modular cards representing events calendar, news snippets, membership status, contact info.
+- Allow users to customize or reorder cards.
+- Use iconography and color-coded cards for quick visual scanning.
+- Responsive grid layout that adapts to screen size.
+- Divide the viewport vertically or horizontally into two panels.
+- Left side focused on navigation or membership catalog; right side for detailed content like event info or news feed.
+- Mouse hover or click can switch content in panels.
+- Good for emphasizing dual content streams.
+- Primary focus on an interactive timeline or calendar view of events on the homepage.
+- Clicking on a date or event brings up details in a sidebar or modal.
+- Secondary sections for news and announcements below or to the side.
+- Use horizontal scrolling for timelines or vertical for calendars.
+- Very little clutter, lots of whitespace.
+- Large typography and simple call-to-action buttons.
+- Events and news shown as simple lists with plenty of spacing and subtle dividing lines.
+- Contact area is minimal - just a small form or mailto link.
+- Display events and sub-organization locations on an interactive map interface.
+- Clicking map pins shows event or location details and related news.
+- Sidebar or bottom drawer for contact form and membership info.
+- Great for showing geographically distributed activities.
+- Feature a visually striking main event or membership callout that looks like a magazine cover.
+- Behind the fold, present news blurbs, calendar teaser, and contact info layered in tiles or grids.
+- Use overlapping text and images for a dynamic look.
+- Embrace a dark color scheme with luminous accent colors.
+- Use animations and glowing highlights on events and news cards.
+- Smooth transitions between dark and light modes for user preference.
+- Focus on readability and accessibility with contrast.
+- Left collapsed vertical nav that expands on mouseover.
+- Mega menu dropdown with preview snippets of events, news, and quick links.
+- Main content displays detailed pages with clean layouts after selection.
