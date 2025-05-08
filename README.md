@@ -105,4 +105,4 @@ This is the official website for the ICCT Colleges Computer Explorer Society - A
     *   **Java (Spring Boot)**: Potential for Forum API, User Authentication, Core CMS, Event Registration, Automated Email System. *(Placeholders exist)*
     *   **Python (Flask/Django/Celery)**: Potential for Data Analysis, AI Tutoring API, Automated Reporting, Email System, Hardware Interaction API, Background Task Processing. *(Placeholders exist)*
     *   **C++**: Potential for High-Performance Computing API, Hardware Interaction API. *(Placeholders exist)*
--   **Deployment**: Vercel / Firebase Hosting (TBD)
+-   **Deployment**: Vercel / Firebase Hosting (TBD) / Visual Studio Code / Pycharm / Atom / Trae
