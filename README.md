@@ -106,11 +106,3 @@ This is the official website for the ICCT Colleges Computer Explorer Society - A
     *   **Python (Flask/Django/Celery)**: Potential for Data Analysis, AI Tutoring API, Automated Reporting, Email System, Hardware Interaction API, Background Task Processing. *(Placeholders exist)*
     *   **C++**: Potential for High-Performance Computing API, Hardware Interaction API. *(Placeholders exist)*
 -   **Deployment**: Vercel / Firebase Hosting (TBD)
-
-
-To get started, explore the `src/app` directory, particularly `src/app/page.tsx`.
-# CES
-# COMPUTER-EXPLORER-SOCIETY
-# COMPUTER-EXPLORER-SOCIETY
-# COMPUTER-EXPLORER-SOCIETY
-# COMPUTER-EXPLORER-SOCIETY
