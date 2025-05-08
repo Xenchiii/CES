@@ -110,3 +110,4 @@ This is the official website for the ICCT Colleges Computer Explorer Society - A
 
 To get started, explore the `src/app` directory, particularly `src/app/page.tsx`.
 # CES
+# COMPUTER-EXPLORER-SOCIETY
