@@ -1,6 +1,6 @@
 # ICCT COLLEGES COMPUTER EXPLORER SOCIETY - ANTIPOLO CAMPUS
 
-This is the official website for the ICCT Colleges Computer Explorer Society - Antipolo Campus, built with Next.js and Firebase.
+This is the official website for the ICCT Colleges Computer Explorer Society - Antipolo Campus, built with Next.js, Visual Studio Code, Atom and Firebase.
 
 ## Core Features:
 
